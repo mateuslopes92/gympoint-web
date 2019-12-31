@@ -18,7 +18,7 @@ export default function Routes() {
 
         <Route path="/students" component={Students} isPrivate />
         <Route path="/plans" component={Plan} isPrivate />
-        <Route path="/registrations" component={Registration} isPrivate />
+        <Route path="/registration" component={Registration} isPrivate />
         <Route path="/help-orders" component={HelpOrder} isPrivate />
       </Switch>
     </>
