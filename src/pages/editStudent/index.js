@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StudentForm from '~/components/StudentForm';
 
-// import { Container } from './styles';
-
 export default function editStudent({ location }) {
   return (
     <StudentForm

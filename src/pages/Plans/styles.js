@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 900px;
   margin: 30px auto 0;
 
   header {
@@ -16,6 +16,7 @@ export const Container = styled.div`
       line-height: 28px;
     }
   }
+
   span {
     display: flex;
     align-items: center;
@@ -40,22 +41,6 @@ export const Container = styled.div`
         margin-left: 10px;
       }
     }
-
-    div {
-      display: flex;
-      align-items: center;
-      width: 237px;
-      height: 36px;
-      border-radius: 4px;
-      background: #ffffff;
-      margin-left: 15px;
-      padding: 10px;
-
-      input {
-        border: none;
-        margin-left: 10px;
-      }
-    }
   }
 `;
 
@@ -71,6 +56,7 @@ export const Content = styled.div`
 
     tr {
       border: none;
+      text-align: left;
       height: 50px;
 
       &:not(:last-of-type) {
@@ -84,12 +70,18 @@ export const Content = styled.div`
         &:nth-child(3) {
           text-align: center;
         }
+        &:nth-child(2) {
+          text-align: center;
+        }
       }
 
       td {
         color: #666666;
 
         &:nth-child(3) {
+          text-align: center;
+        }
+        &:nth-child(2) {
           text-align: center;
         }
         &:last-child {
