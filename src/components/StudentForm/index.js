@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import { Container, Content } from './styles';
 
@@ -39,11 +40,13 @@ export default function StudentForm({ title, from, student }) {
           height: data.height,
         };
 
-        await api.post('student', newStudent);
+        await api.post('students', newStudent);
 
         toast.success('Aluno cadastrado com sucesso.');
 
         resetForm();
+
+        history.push('/students');
       } catch (err) {
         toast.error('Erro no cadastro, verifique os dados');
       }
@@ -57,9 +60,13 @@ export default function StudentForm({ title, from, student }) {
           height: data.height,
         };
 
-        await api.put(`student/${student.id}`, editStudent);
+        await api.put(`students/${student.id}`, editStudent);
 
         toast.success('Cadastro de aluno atualizado com sucesso.');
+
+        setTimeout(function() {
+          history.push('/students');
+        }, 3000);
       } catch (err) {
         toast.error('Erro na atualização do cadastro, verifique os dados');
       }
@@ -71,7 +78,7 @@ export default function StudentForm({ title, from, student }) {
         <h1>{title}</h1>
 
         <span>
-          <Link to="/newStudent">
+          <Link to="/students">
             <MdArrowBack size={22} color="#fff" />
             <span>VOLTAR</span>
           </Link>
@@ -83,16 +90,21 @@ export default function StudentForm({ title, from, student }) {
           schema={schema}
           initialData={from === 'editStudent' ? student : null}
         >
-          <Input name="name" label="NOME COMPLETO" placeholder="John Doe" />
+          <Input name="name" label="NOME COMPLETO" placeholder="ex: Nome " />
           <Input
             name="email"
             type="email"
             label="ENDEREÇO DE E-MAIL"
-            placeholder="exemplo@email.com"
+            placeholder="ex: exemplo@email.com"
           />
           <div>
             <div>
-              <Input name="age" type="number" label="IDADE" />
+              <Input
+                name="age"
+                type="number"
+                label="IDADE"
+                placeholder="ex: 22"
+              />
             </div>
             <div>
               <Input
@@ -100,6 +112,7 @@ export default function StudentForm({ title, from, student }) {
                 step="0.01"
                 name="weight"
                 label="PESO (em kg)"
+                placeholder="ex: 60.55"
               />
             </div>
             <div>
@@ -108,6 +121,7 @@ export default function StudentForm({ title, from, student }) {
                 type="number"
                 step="0.01"
                 label="ALTURA (em metros)"
+                placeholder="ex: 1.75"
               />
             </div>
           </div>

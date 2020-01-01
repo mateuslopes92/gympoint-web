@@ -22,7 +22,7 @@ export default function Students() {
 
   useEffect(() => {
     loadStudents(studentName);
-  }, [students, studentName]);
+  }, [studentName]);
 
   async function handleDelete(id) {
     const result = window.confirm('Deseja realmente excluir o aluno ?');
