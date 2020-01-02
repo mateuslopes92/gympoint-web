@@ -6,7 +6,7 @@ export default function editPlan({ location }) {
   return (
     <PlanForm
       title="Edição de plano"
-      from="editStudent"
+      from="editPlan"
       plan={location.state.plan}
     />
   );

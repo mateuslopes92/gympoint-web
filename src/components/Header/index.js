@@ -26,10 +26,10 @@ export default function Header() {
     case '/editPlan':
       active = 'Plan';
       break;
-    case '/registration':
+    case '/registrations':
     case '/newRegistration':
     case '/editRegistration':
-      active = 'Registration';
+      active = 'Registrations';
       break;
     case '/help-orders':
       active = 'HelpOrders';
@@ -62,8 +62,8 @@ export default function Header() {
               PLANOS
             </Link>
             <Link
-              to="/registration"
-              className={active === 'Registration' ? 'active' : ''}
+              to="/registrations"
+              className={active === 'Registrations' ? 'active' : ''}
             >
               MATRÍCULAS
             </Link>

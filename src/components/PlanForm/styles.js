@@ -55,6 +55,12 @@ export const Content = styled.div`
   form {
     display: flex;
     flex-direction: column;
+
+    span {
+      color: #de3b3b;
+      margin: 10px;
+    }
+
     input {
       height: 45px;
       padding: 15px;

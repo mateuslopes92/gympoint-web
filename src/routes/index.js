@@ -13,8 +13,11 @@ import Plans from '~/pages/Plans';
 import editPlan from '~/pages/editPlan';
 import newPlan from '~/pages/newPlan';
 
-import Registration from '~/pages/Registration';
-import HelpOrder from '~/pages/HelpOrder';
+import Registrations from '~/pages/Registrations';
+import editRegistration from '~/pages/editRegistration';
+import newRegistration from '~/pages/newRegistration';
+
+import HelpOrders from '~/pages/HelpOrders';
 
 export default function Routes() {
   return (
@@ -30,8 +33,15 @@ export default function Routes() {
         <Route path="/editPlan" component={editPlan} isPrivate />
         <Route path="/newPlan" component={newPlan} isPrivate />
 
-        <Route path="/registration" component={Registration} isPrivate />
-        <Route path="/help-orders" component={HelpOrder} isPrivate />
+        <Route path="/registrations" component={Registrations} isPrivate />
+        <Route
+          path="/editRegistration"
+          component={editRegistration}
+          isPrivate
+        />
+        <Route path="/newRegistration" component={newRegistration} isPrivate />
+
+        <Route path="/help-orders" component={HelpOrders} isPrivate />
       </Switch>
     </>
   );

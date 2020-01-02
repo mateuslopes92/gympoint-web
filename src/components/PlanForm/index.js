@@ -25,9 +25,11 @@ const schema = Yup.object().shape({
 export default function PlanForm({ title, from, plan }) {
   console.tron.log(plan);
   const [duration, setDuration] = useState(
-    plan && from === 'edit' ? plan.duration : 0
+    plan && from === 'editPlan' ? plan.duration : 0
   );
-  const [price, setPrice] = useState(plan && from === 'edit' ? plan.price : 0);
+  const [price, setPrice] = useState(
+    plan && from === 'editPlan' ? plan.price : 0
+  );
 
   const [totalPrice, setTotalPrice] = useState(duration * price);
 
@@ -62,7 +64,9 @@ export default function PlanForm({ title, from, plan }) {
           price: data.price,
         };
 
-        await api.put(`plans/${plan.id}`, editPlan);
+        console.tron.log(editPlan);
+
+        await api.put(`/plans/${plan.id}`, editPlan);
 
         toast.success('Cadastro de aluno atualizado com sucesso.');
 
