@@ -31,6 +31,7 @@ export default function Students() {
       try {
         await api.delete(`/students/${id}`);
         toast.success('Aluno deletado com sucesso!');
+        loadStudents();
       } catch (err) {
         toast.error('Algo deu errado.');
       }

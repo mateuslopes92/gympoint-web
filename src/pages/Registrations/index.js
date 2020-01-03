@@ -50,6 +50,7 @@ export default function Registrations() {
       try {
         await api.delete(`/registrations/${id}`);
         toast.success('Matrícula deletada com sucesso!');
+        loadRegistrations();
       } catch (err) {
         toast.error('Algo deu errado.');
       }

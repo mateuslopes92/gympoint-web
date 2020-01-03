@@ -27,6 +27,7 @@ export default function Plans() {
       try {
         await api.delete(`/plans/${id}`);
         toast.success('Plano deletado com sucesso!');
+        loadPlans();
       } catch (err) {
         toast.error('Algo deu errado.');
       }
