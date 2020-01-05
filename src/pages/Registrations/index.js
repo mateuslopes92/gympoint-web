@@ -53,6 +53,7 @@ export default function Registrations() {
         loadRegistrations();
       } catch (err) {
         toast.error('Algo deu errado.');
+        toast.error('Nao e possivel apagar uma matricula inativa.');
       }
     }
   }

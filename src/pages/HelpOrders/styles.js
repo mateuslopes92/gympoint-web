@@ -100,6 +100,16 @@ export const Content = styled.div`
   }
 `;
 
+export const AnswerModalBackground = styled.div`
+  display: ${props => (props.visible ? 'block' : 'none')};
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+`;
+
 export const AnswerModal = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
   position: absolute;

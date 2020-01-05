@@ -6,7 +6,12 @@ import { MdAddBox } from 'react-icons/md';
 
 import api from '~/services/api';
 
-import { Container, Content, AnswerModal } from './styles';
+import {
+  Container,
+  Content,
+  AnswerModal,
+  AnswerModalBackground,
+} from './styles';
 
 export default function HelpOrders() {
   const [visible, setVisible] = useState(false);
@@ -51,36 +56,31 @@ export default function HelpOrders() {
 
   return (
     <>
-      <AnswerModal className="AnswerModal" visible={visible}>
-        <div>
-          <strong>PERGUNTA DO ALUNO</strong>
-          <p>{helpQuestion.question}</p>
+      <AnswerModalBackground visible={visible}>
+        <AnswerModal className="AnswerModal" visible={visible}>
           <div>
-            <Input
-              multiline
-              type="text"
-              name="answer"
-              label="SUA RESPOSTA"
-              placeholder="Digite aqui sua resposta"
-              value={answer}
-              onChange={e => setAnswer(e.target.value)}
-            />
+            <strong>PERGUNTA DO ALUNO</strong>
+            <p>{helpQuestion.question}</p>
+            <div>
+              <Input
+                multiline
+                type="text"
+                name="answer"
+                label="SUA RESPOSTA"
+                placeholder="Digite aqui sua resposta"
+                value={answer}
+                onChange={e => setAnswer(e.target.value)}
+              />
+            </div>
+            <button type="button" onClick={() => handleAnswer(helpQuestion.id)}>
+              Responder aluno
+            </button>
           </div>
-          <button type="button" onClick={() => handleAnswer(helpQuestion.id)}>
-            Responder aluno
-          </button>
-        </div>
-      </AnswerModal>
+        </AnswerModal>
+      </AnswerModalBackground>
       <Container>
         <header>
           <h1>Pedidos de auxílio</h1>
-
-          <span>
-            <Link to="/newPlan">
-              <MdAddBox size={22} color="#fff" />
-              <span>CADASTRAR</span>
-            </Link>
-          </span>
         </header>
         <Content>
           <table>

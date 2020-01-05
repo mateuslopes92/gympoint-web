@@ -63,8 +63,6 @@ export default function RegistrationForm({ title, from, registration }) {
         .substr(0, 10),
     };
 
-    console.tron.log(data);
-
     if (from === 'editRegistration') {
       try {
         try {
@@ -140,13 +138,13 @@ export default function RegistrationForm({ title, from, registration }) {
 
     loadPlans();
     loadStudents();
-  }, [plans]);
+  }, []);
 
   useEffect(() => {
     setTotalPrice(plan ? plan.duration * plan.price : 0);
     if (startDate !== null && plan !== null) {
-      const formatedStart = endOfDay(parseISO(startDate));
-      const formatedEnd = endOfDay(addMonths(formatedStart, plan.duration))
+      const formatedStart = startOfDay(parseISO(startDate));
+      const formatedEnd = startOfDay(addMonths(formatedStart, plan.duration))
         .toISOString()
         .substr(0, 10);
 
@@ -158,7 +156,8 @@ export default function RegistrationForm({ title, from, registration }) {
     if (student === null || searchName !== student.name)
       setShowStudentList(true);
     loadStudents(searchName);
-  }, [searchName, student]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchName]);
 
   useEffect(() => {
     if (student) setSearchName(student.name);
@@ -181,7 +180,7 @@ export default function RegistrationForm({ title, from, registration }) {
         <Form
           onSubmit={handleSubmit}
           schema={schema}
-          initialData={from === 'edit' ? registration : null}
+          initialData={from === 'editRegistration' ? registration : null}
         >
           <Input
             name="studentName"
